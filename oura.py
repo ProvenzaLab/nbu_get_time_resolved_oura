@@ -8,17 +8,17 @@ class OuraSubject:
 
     # https://cloud.ouraring.com/v2/docs
 
-    def __init__(self, patient: str):
-        if "TRB" in patient:
-            path_oura = f"/mnt/datalake/data/TRBD-53761/{patient.split('_')[0]}/oura"
-        elif "AA" in patient:
-            path_oura = f"/mnt/datalake/data/AA-56119/{patient.split('_')[0]}/oura"
-        elif "P0" in patient:
-            path_oura = f"/mnt/datalake/data/PerceptOCD-48392/{patient.split('_')[0]}/oura"
+    def __init__(self, path_oura: str, patient: str):
+        # if "TRB" in patient:
+        #     path_oura = f"/mnt/datalake/data/TRBD-53761/{patient.split('_')[0]}/oura"
+        # elif "AA" in patient:
+        #     path_oura = f"/mnt/datalake/data/AA-56119/{patient.split('_')[0]}/oura"
+        # elif "P0" in patient:
+        #     path_oura = f"/mnt/datalake/data/PerceptOCD-48392/{patient.split('_')[0]}/oura"
+
 
         self.oura_path = path_oura
         self.patient = patient
-
         self.oura_dates = sorted(os.listdir(path_oura))
 
     def get_oura_scores(self, date: datetime.date):
